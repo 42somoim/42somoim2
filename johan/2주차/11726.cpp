@@ -1,9 +1,15 @@
-//
-//  11726.cpp
-//  solved
-//
-//  Created by 한종호 on 17/10/2020.
-//  Copyright © 2020 hanjongho. All rights reserved.
-//
+#include <iostream>
+using namespace std;
 
-#include <stdio.h>
+int main()
+{
+    int a[1001], n;
+    
+    a[1] = 1;
+    a[2] = 2;
+    for (int i = 3; i <= 1000; i++)
+        a[i] = (a[i - 1] + a[i - 2]) % 10007;
+    cin >> n;
+    cout << a[n] % 10007;
+    return 0;
+}
