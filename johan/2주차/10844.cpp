@@ -1,7 +1,6 @@
 #include <iostream>
 using namespace std;
 
-
 int main()
 {
     int N;
@@ -26,4 +25,5 @@ int main()
 
     sum %= 1000000000;
     cout << sum;
+    return (0);
 }

@@ -16,5 +16,5 @@ int main()
         cin >> temp;
         cout << dp[temp];
     }
-    return 0;
+    return (0);
 }

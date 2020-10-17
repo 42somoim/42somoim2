@@ -11,5 +11,5 @@ int main()
         a[i] = (a[i - 1] + a[i - 2]) % 10007;
     cin >> n;
     cout << a[n] % 10007;
-    return 0;
+    return (0);
 }

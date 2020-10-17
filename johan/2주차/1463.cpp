@@ -16,4 +16,5 @@ int main()
             dp[i] = dp[i / 3] + 1;
     }
     cout << dp[number];
+    return (0);
 }
