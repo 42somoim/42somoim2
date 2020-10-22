@@ -1,25 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   11718.c                                            :+:      :+:    :+:   */
+/*   N_찍기.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gunkim <papawolf@kakao.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/10/19 07:28:52 by gunkim            #+#    #+#             */
-/*   Updated: 2020/10/19 11:22:27 by gunkim           ###   ########.fr       */
+/*   Created: 2020/10/19 19:13:46 by gunkim            #+#    #+#             */
+/*   Updated: 2020/10/19 19:16:33 by gunkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
-#include <stdlib.h>
 
 int		main(void)
 {
-	char	str[101];
+	unsigned int		num;
+	unsigned int		i;
 
-	while (fgets(str, 101, stdin))
+	scanf("%d", &num);
+	i = 1;
+	while (i <= num)
 	{
-		printf("%s", str);
+		printf("%d\n", i);
+		i++;
 	}
 	return (0);
 }

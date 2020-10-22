@@ -1,25 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   11718.c                                            :+:      :+:    :+:   */
+/*   최소,최대.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gunkim <papawolf@kakao.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/10/19 07:28:52 by gunkim            #+#    #+#             */
-/*   Updated: 2020/10/19 11:22:27 by gunkim           ###   ########.fr       */
+/*   Created: 2020/10/19 19:48:22 by gunkim            #+#    #+#             */
+/*   Updated: 2020/10/19 19:56:12 by gunkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
-#include <stdlib.h>
 
 int		main(void)
 {
-	char	str[101];
-
-	while (fgets(str, 101, stdin))
+	int		num;
+	int		temp;
+	int		max;
+	int		min;
+	
+	scanf("%d", &num);
+	if (num == 0)
+	return (0);
+	scanf("%d", &temp);
+	max = temp;
+	min = temp;
+	while (--num)
 	{
-		printf("%s", str);
+		scanf("%d", &temp); 
+		if (temp > max)
+			max = temp;
+		if (temp < min)
+			min = temp;
 	}
+	printf("%d %d", min, max);
 	return (0);
 }

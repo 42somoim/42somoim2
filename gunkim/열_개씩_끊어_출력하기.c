@@ -1,25 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   11718.c                                            :+:      :+:    :+:   */
+/*   열_개씩_끊어_출력하기.c                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gunkim <papawolf@kakao.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/10/19 07:28:52 by gunkim            #+#    #+#             */
-/*   Updated: 2020/10/19 11:22:27 by gunkim           ###   ########.fr       */
+/*   Created: 2020/10/19 17:41:38 by gunkim            #+#    #+#             */
+/*   Updated: 2020/10/19 19:10:53 by gunkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
-#include <stdlib.h>
+#include <string.h> 
 
 int		main(void)
 {
-	char	str[101];
+	int		len;
+	int		i;
+	char	block_ten[101];
 
-	while (fgets(str, 101, stdin))
+	scanf("%100s", block_ten);
+	len = strlen(block_ten);
+	if (len == 0)
+		return (0);
+	i = 0;
+	while (i <= len)
 	{
-		printf("%s", str);
+		printf("%.10s\n", block_ten + i);
+		i += 10;
 	}
 	return (0);
 }
