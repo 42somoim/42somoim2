@@ -10,15 +10,14 @@ int main()
     for (int i = 1; i <= N; i++)
         cin >> A[i];
     DP[1] = A[1];
-    for (int i = 2; i <= N; i++)
+    for (int i = 1; i <= N; i++)
     {
         DP[i] = A[i];
         for (int j = 1; j < i; j++)
             if (A[i] > A[j])
                 DP[i] = max(A[i] + DP[j], DP[i]);
-    }
-    for (int i = 1; i <= N; i++)
         ANS = max(ANS, DP[i]);
+    }
     cout << ANS << "\n";
     return (0);
 }
