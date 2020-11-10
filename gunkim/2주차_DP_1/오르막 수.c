@@ -6,12 +6,11 @@
 /*   By: gunkim <gunkim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/09 17:54:36 by gunkim            #+#    #+#             */
-/*   Updated: 2020/11/09 19:14:10 by gunkim           ###   ########.fr       */
+/*   Updated: 2020/11/10 18:44:27 by gunkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
-#include <math.h>
 
 int	main(void)
 {
