@@ -26,7 +26,7 @@ int main(void){
 		p.first = age; p.second = name;
 		group.push_back(p);
 	}
-	sort(group.begin(), group.end(), compare);
+	stable_sort(group.begin(), group.end(), compare);
 	for(pair<int, string> p1 : group)
 		cout << p1.first << " " << p1.second << "\n";
 }
