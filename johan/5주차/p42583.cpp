@@ -9,6 +9,7 @@ using namespace std;
 int solution(int bridge_length, int weight, vector<int> truck_weights) {
     int answer = 0, bridge_weight = 0;
     vector<pair<int, int>> bridge;
+    
     while (1)
     {
         answer++;
