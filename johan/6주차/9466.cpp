@@ -33,8 +33,8 @@ int dfs(int start, int dest, int cnt)
 
 int main()
 {
-	ios::sync_with_stdio(0);
-	cin.tie(0);
+	ios::sync_with_stdio(false);
+	cin.tie(0);cout.tie(0);
 
 	int T, n, ans;
 	cin >> T;

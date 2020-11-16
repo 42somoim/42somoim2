@@ -40,7 +40,6 @@ int bfs(int count) {
             int x = q.front().first;
             int y = q.front().second;
             q.pop();
-
             for (int j = 0; j < 4; j++) {
                 int nx = x + dx[j];
                 int ny = y + dy[j];
@@ -60,8 +59,8 @@ int bfs(int count) {
 }
 
 int main() {
-	ios::sync_with_stdio(0);
-	cin.tie(0);
+	ios::sync_with_stdio(false);
+	cin.tie(0);cout.tie(0);
 
     int count = 1, result = 987654321;
     cin >> N;
