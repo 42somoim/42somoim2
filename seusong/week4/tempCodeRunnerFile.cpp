@@ -1,1 +1,1 @@
-v[num]
+			cout << token;
