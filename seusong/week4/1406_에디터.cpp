@@ -1,38 +1,40 @@
 #include<iostream>
 #include<string>
+#include<list>
 
 using namespace std;
 
 int main(void){
 	cin.tie(NULL);
 	ios::sync_with_stdio(false);
-	string s, o, n, cha, ans;
-	int t, cur, flag;
+	string s, ans;
+	char op, cha;
+	int n;
+	list<char> l;
 
-	getline(cin, s);
-	getline(cin, n);
-	t = stoi(n);
-	cur = 0;
+	cin >> s >> n;
 	for(char c : s)
-		cur++;
-	flag = cur;
-	for(int i = 0; i < t;i++){
-		getline(cin, o);
-		if(o[0] == 'P'){
-			cha = o[2];
-			s.insert(cur, cha);
-			cur += 1;
-			flag += 1;
+		l.push_back(c);
+	l.push_back(' ');
+	auto iter = l.end();
+	for(int i = 0; i < n;i++){
+		cin >> op;
+		if(op == 'P'){
+			cin >> cha;
+			l.insert(iter++, cha);
 		}
-		else if(o[0] == 'L' && cur > 0)
-			cur -= 1;
-		else if(o[0] == 'D' && cur < flag)
-			cur += 1;
-		else if(o[0] == 'B' && cur > 0){
-			s.erase(cur - 1, 1);
-			cur -= 1;
-			flag -= 1;
+		else if(op== 'L' && iter != l.begin())
+			iter--;
+		else if(op== 'D' && iter != l.end())
+			iter++;
+		else if(op== 'B' && iter != l.begin()){
+			l.erase(--iter);
 		}
+		cout << *iter << "\n";
+		for(iter = l.begin(); iter != l.end();iter++)
+			cout << *iter;
 	}
-	cout << s << "\n";
+	for(iter = l.begin(); iter != l.end();iter++)
+		cout << *iter;
+	cout << "\n";
 }
