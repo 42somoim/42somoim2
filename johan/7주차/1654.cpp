@@ -2,7 +2,6 @@
 using namespace std;
 
 int N, K;
-long long ans = 1;
 long long lan[10001];
 
 void diviedandconquer(long long start, long long end)
@@ -12,14 +11,11 @@ void diviedandconquer(long long start, long long end)
 	for (int i = 0; i < N; i++)
 		sum += lan[i] / mid;
 	if (start > end)
-		cout << ans << "\n";
+		cout << end << "\n";
 	else if (sum < K)
 		diviedandconquer(start, mid - 1);
 	else if (sum >= K)
-	{
-		ans = max(ans, mid);
 		diviedandconquer(mid + 1, end);
-	}
 }
 
 int main()
