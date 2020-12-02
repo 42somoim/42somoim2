@@ -1,44 +1,36 @@
 #include<iostream>
 #include<vector>
-#include<queue>
-#include<set>
+#include<cstring>
 
 using namespace std;
+int visited[100001];
+int g[100001];
+int ans;
 
-bool check[1001];
-vector<int> vg[1001];
-
+void dfs(int idx, int flag, int cnt){
+	if(idx == flag) {ans += cnt; return;}
+	if(visited[idx]) return;
+	visited[idx] = 1;
+	dfs(g[idx], flag, cnt + 1);
+}
 int main(void){
-	int n, m, u, v, ans;
-	set<int> se;
-	queue<int> q;
+	int t;
 
-	cin >> n >> m;
-	for(int i = 0; i < m;i++){
-		cin >> u >> v;
-		vg[u].push_back(v);vg[v].push_back(u);
-		se.insert(u); se.insert(v);
-	}
-	ans = 0;
-	if(n != 1)
-	{
-		for(auto it = se.begin(); it != se.end();it++){
+	cin >> t;
+	while(t--){
+		int n, v1;
 
-			if(check[*it])
-				continue;
-			q.push(*it);check[*it] = true;
-			while(q.size()){
-				for(int j = 0; j < vg[q.front()].size();j++){
-					int tmp = vg[q.front()][j];
-					if(!check[tmp]){
-						q.push(tmp);
-						check[tmp] = true;
-					}
-				}
-				q.pop();
-			}
-			ans++;
+		memset(g, 0, sizeof(g));
+		memset(visited, 0, sizeof(visited));
+		cin >> n;
+		for(int i = 1; i <= n;i++){
+			cin >> v1;
+			g[i] = v1;
 		}
+		ans = 0;
+		for(int i = 1; i <= n;i++){
+			dfs(g[i], i, 1);
+		}
+		cout << n - ans << "\n";
 	}
-	cout << ans;
 }

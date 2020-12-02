@@ -30,7 +30,7 @@ int main(void){
 
 	cin >> k;
 	while(k--){
-		int v, e, v1, v2;
+		int v, e, v1, v2, flag;
 		set<int> se;
 		set<int>::iterator it;
 
