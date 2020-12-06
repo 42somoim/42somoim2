@@ -44,5 +44,6 @@ int main(void){
 	preorder('A');
 	cout << "\n";
 	inorder('A');
+	cout << "\n";
 	postorder('A');
 }
