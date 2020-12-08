@@ -18,9 +18,8 @@ int main(void){
 	while(left <= right){
 		mid = (left + right) / 2;
 		sum = 0;
-		for(int i = 0;i < k ; i++){
+		for(int i = 0;i < k ; i++)
 			sum += (wires[i] / mid);
-		}
 		if(sum < n)
 			right = mid - 1;
 		else if(sum >= n){
