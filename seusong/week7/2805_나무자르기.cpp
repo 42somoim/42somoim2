@@ -26,10 +26,8 @@ int main(void){
 		if(sum >= m){
 			left = mid + 1;
 			ans = max(ans, mid);
-		}else if(sum < m){
+		}else if(sum < m)
 			right = mid - 1;
-		}
 	}
 	cout << ans;
-
 }
