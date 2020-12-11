@@ -8,7 +8,7 @@ vector<int> cards;
 int main(void){
 	ios::sync_with_stdio(false);
 	cin.tie(NULL);
-	int n, m, card, left, right, mid, flag;
+	int n, m, card;
 
 	cin >> n;
 	for(int i = 0; i < n;i++){
