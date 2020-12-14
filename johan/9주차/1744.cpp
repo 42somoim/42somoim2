@@ -27,7 +27,7 @@ int main()
 	}
 	for (int i = N - 1; i > one_idx; i -= 2)
 	{
-		arr[i] = max(arr[i] * arr[i - 1], arr[i] + arr[i - 1]);
+		arr[i] = max(arr[i] * arr[i - 1], arr[i] + arr[i - 1]); // 1은 곱하는 것 보다 더하는 게 더 큼
 		arr[i - 1] = 0;
 	}
 	for (int i = 0; i < N; i++)
