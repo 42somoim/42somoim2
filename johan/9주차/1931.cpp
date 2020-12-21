@@ -8,7 +8,7 @@ struct meeting{
 };
 
 bool cmp(meeting mt1, meeting mt2){ // 무적권 빨리 끝나는 것 앞으로 / 같이 끝난다면 시작이 빠른 걸로.
-    if(mt1.end == mt2.end)
+    if (mt1.end == mt2.end)
         return mt1.start < mt2.start;
     return mt1.end < mt2.end;
 }
@@ -23,7 +23,9 @@ int main(){
     
     for(int i=0; i<N; i++)
         cin >> t[i].start >> t[i].end;
+
     sort(t.begin(), t.end(), cmp);
+
     for(int i = 0; i < N; i++){
         if( tmp <= t[i].start){
             tmp = t[i].end;
