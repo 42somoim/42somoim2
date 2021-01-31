@@ -1,97 +1,80 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   수 정렬하기.c                                 :+:      :+:    :+:   */
+/*   2750.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gunkim <gunkim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/12/22 03:40:44 by gunkim            #+#    #+#             */
-/*   Updated: 2020/12/30 03:28:06 by gunkim           ###   ########.fr       */
+/*   Created: 2021/01/21 00:56:37 by gunkim            #+#    #+#             */
+/*   Updated: 2021/01/21 02:05:46 by gunkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
 
+int		arr[1000];// = {3, 0, 1, 8, 7, 2, 5, 4, 9, 6};
 int		n;
 
-void	ft_recursive_merge_sort(int start, int end, int *arr, int *temp)
+void	ft_qsort(int start, int end)
 {
-	if (end - start + 1 >= 3)
-	{
-		ft_recursive_merge_sort(start, start + (end - start + 1) / 2 - 1, arr, temp);
-		ft_recursive_merge_sort(start + (end - start + 1) / 2, end, arr, temp);
-	}
-	int		i;
-	int		j;
-	int		left, right, half, last;
+	int		pivot;
+	int		head;
+	int		temp;
 
-	i = 0;
-	left = start;
-	right = half = start + (end - start + 1) / 2;
-	last = end + 1;
-	while (i < end - start + 1)
+	pivot = start;
+	head = end;
+	while (pivot != head)
 	{
-		if (left < half && right < last)
+		if (pivot < head)
 		{
-			if (arr[left] > arr[right]) 
+			if (arr[pivot] > arr[head])
 			{
-				temp[start + i] = arr[right];
-				right++;
+				temp = arr[pivot];
+				arr[pivot] = arr[head];
+				arr[head] = temp;
+				temp = pivot;
+				pivot = head;
+				head = temp;
 			}
 			else
+				head--;
+		}
+		else if (head < pivot)
+		{
+			if (arr[head] > arr[pivot])
 			{
-				temp[start + i] = arr[left];
-				left++;
+				temp = arr[pivot];
+				arr[pivot] = arr[head];
+				arr[head] = temp;
+				temp = pivot;
+				pivot = head;
+				head = temp;
 			}
+			else
+				head++;
 		}
-		else if (left >= half)
-		{
-			temp[start + i] = arr[right];
-			right++;
-		}
-		else if (right >= last)
-		{
-			temp[start + i] = arr[left];
-			left++;
-		}
-		///*
-		j = -1;
-		while (++j < 9)
-			printf("%d ", arr[j]);
-		printf("\n");
-		j = -1;
-		while (++j < 9)
-			printf("%d ", temp[j]);
-		printf("\n");
-		//*/
-		i++;
 	}
-	while (i--)
+	if (start != end)
 	{
-		arr[start] = temp[start];
-		start++;
+		if (start != pivot)
+			ft_qsort(start, pivot - 1);
+		if (pivot != end)
+			ft_qsort(pivot + 1, end);
 	}
 }
 
 int		main(void)
 {
-	int		i;//         0  1  2  3  4  5  6  7  8  9
-//	int		arr[1000000] = {1, 2, 0, 1, 9, 8, 7, 6, 5, 0};
-	int		arr[1000000] = {0};
-	int		temp[1000000] = {0};
+	int		i;
 
 	scanf("%d", &n);
 	i = -1;
 	while (++i < n)
 		scanf("%d", &arr[i]);
-	///*
-	i = -1;
-	while (++i < n)
-		printf("%d", arr[i]);
-	//*/
-	ft_recursive_merge_sort(0, n - 1, arr, temp);
+	ft_qsort(0, n - 1);
+	// n = 10;
+	// ft_qsort(0, 9);
 	i = -1;
 	while (++i < n)
 		printf("%d\n", arr[i]);
-	return (0);
 }
