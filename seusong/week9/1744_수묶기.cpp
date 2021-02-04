@@ -32,7 +32,8 @@ int main(void){
 	ios::sync_with_stdio(false);
 	cin.tie(NULL);
 
-	int n, num, zero, sum;
+	int n, num, zero;
+	long long sum;
 	vector<int> minus;
 	vector<int> plus;
 
@@ -40,10 +41,8 @@ int main(void){
 	zero = 0; sum = 0;
 	for(int i = 0; i < n ;i++){
 		cin >> num;
-		if(num > 0)
-			plus.push_back(num);
-		else if(num < 0)
-			minus.push_back(num);
+		if(num > 0) plus.push_back(num);
+		else if(num < 0) minus.push_back(num);
 		else zero = 1;
 	}
 	sort(plus.begin(), plus.end());
@@ -52,23 +51,27 @@ int main(void){
 	if(plus.size() % 2 == 1){
 		sum += plus[0];
 		for(int i = 1; i < plus.size(); i += 2){
-			sum += plus[i] * plus[i + 1];
+			if (plus[i] == 1)
+				sum += plus[i] + plus[i + 1];
+			else
+				sum += plus[i] * plus[i + 1];
 		}
 	}else{
 		for(int i = 0; i < plus.size(); i += 2){
-			sum += plus[i] * plus[i + 1];
+			if (plus[i] == 1)
+				sum += plus[i] + plus[i + 1];
+			else
+				sum += plus[i] * plus[i + 1];
 		}
 	}
-	//
+	// minus Ã³¸®
 	if(minus.size() % 2 == 1){
-		for(int i = 0; i < minus.size() - 1; i += 2){
+		for(int i = 0; i < minus.size() - 1; i += 2)
 			sum += minus[i] * minus[i + 1];
-		}
 		if(!zero) sum += minus[minus.size() - 1];
 	}else{
-		for(int i = 0; i < minus.size(); i += 2){
+		for(int i = 0; i < minus.size(); i += 2)
 			sum += minus[i] * minus[i + 1];
-		}
 	}
 	cout << sum;
 }
