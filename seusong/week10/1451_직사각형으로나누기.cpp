@@ -51,4 +51,11 @@ int main(void){
 				ans = sq1 * sq2 * sq3;
 		}
 	}
+
+	// 3번 케이스W
+	for(int i = 0; i < m - 1; i++){
+		for(int j = 0; j < ;j++){
+			sq1 = getSum(0, 0, i, n - 1);
+		}
+	}
 }
